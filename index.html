@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Collection Manager</title>
+  <style>
+    body {
+      background-color: navy;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    nav {
+      background-color: #333;
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+    nav button:hover {
+      background-color: #555;
+    }
+    .page {
+      display: none;
+      padding: 20px;
+    }
+    .page.active {
+      display: block;
+    }
+    h1 {
+      color: yellow;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #444;
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+    .deck {
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #555;
+      margin-bottom: 10px;
+    }
+    .deck .deck-cards {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <button class="nav-tab" data-tab="home">Home</button>
+    <button class="nav-tab" data-tab="search">Search</button>
+    <button class="nav-tab" data-tab="collection">Collection</button>
+    <button class="nav-tab" data-tab="decks">Decks</button>
+  </nav>
+
+  <div id="home" class="page active">
+    <h1>Welcome to Card Collection Manager</h1>
+    <button id="scanCard">Scan a Card</button>
+    <button id="manualInput">Manually Add Card</button>
+  </div>
+
+  <div id="search" class="page">
+    <h1>Search for Cards</h1>
+    <input type="text" id="searchInput" placeholder="Search by name">
+    <div id="searchResults" class="grid-container"></div>
+  </div>
+
+  <div id="collection" class="page">
+    <h1>Your Collection</h1>
+    <button id="toggleRemoveMode">Enable Remove Mode</button>
+    <br/><br/>
+    <label>Sort by Number:</label>
+    <select id="sortNumber">
+      <option value="all">All</option>
+      <option value="competitor">Competitor</option>
+      <option value="entrance">Entrance</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+      <!-- Additional options as needed -->
+    </select>
+    <label>Sort by Competitor:</label>
+    <input type="text" id="sortCompetitor" placeholder="Type competitor">
+    <label>Sort by Entrance:</label>
+    <input type="text" id="sortEntrance" placeholder="Type entrance">
+    <div id="collectionGrid" class="grid-container"></div>
+  </div>
+
+  <div id="decks" class="page">
+    <h1>Decks</h1>
+    <button id="createDeck">Create New Deck</button>
+    <div id="deckList"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
